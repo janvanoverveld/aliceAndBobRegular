@@ -32,6 +32,9 @@ function executeNodeProcess(fileName:string){
 
 console.log(`start  ${new Date()} `);
 
+const logDir = './log';
+if (!fs.existsSync(logDir)) fs.mkdirSync(logDir);
+
 executeNodeProcess('mediator.js');
 
 global.setTimeout( () => { executeNodeProcess('alice.js'); }, 500 );
